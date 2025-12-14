@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Bike - Bike4U</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>🚲 WELCOME TO BIKE4U.COM</h1>
+
+  <div class="button-group">
+    <button id="viewBikesPageBtn" class="nav-button">View All Bikes</button>
+  </div>
+
+  <form id="inputdata">
+    <h2>Add your bike here</h2>
+    <input type="text" id="model" placeholder="Model" required>
+    <input type="text" id="brand" placeholder="Brand" required>
+    <input type="number" id="price" placeholder="Price" required>
+    <input type="text" id="type" placeholder="Type" required>
+    <input type="file" id="image" accept="image/*" required>
+
+    <button type="submit" id="but1">Add Bike</button>
+  </form>
+
+  <script>
+    // Navigate to view page
+    document.getElementById("viewBikesPageBtn").addEventListener("click", () => {
+      window.location.href = "viewbikes.html";
+    });
+
+    // Add bike form
+    const formdata = document.getElementById("inputdata");
+
+    formdata.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const model = document.getElementById("model").value;
+      const type = document.getElementById("type").value;
+      const brand = document.getElementById("brand").value;
+      const price = document.getElementById("price").value;
+      const image = document.getElementById("image").files[0];
+
+      const bikedata = new FormData();
+      bikedata.append("model", model);
+      bikedata.append("brand", brand);
+      bikedata.append("price", price);
+      bikedata.append("type", type);
+      bikedata.append("image", image);
+
+      try {
+        const response = await fetch("http://localhost:8080/bike", {
+          method: "POST",
+          body: bikedata,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          alert(`✅ The bike "${data.model || model}" was added successfully!`);
+          formdata.reset();
+        } else {
+          alert("❌ Failed to add the bike. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("⚠️ Something went wrong while adding the bike!");
+      }
+    });
+  </script>
+
+</body>
+</html>

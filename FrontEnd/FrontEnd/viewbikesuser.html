@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Bikes - Bike4U</title>
+  <link rel="stylesheet" href="userviewstyles.css" />
+</head>
+<body>
+
+  <h1>🏍️ Available Bikes</h1>
+
+  <!-- Cart Icon -->
+  <div class="cart-container">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-count" id="cartCount">0</span>
+  </div>
+
+  <div id="bikesContainer">
+    <div class="table-wrapper">
+      <table id="bikeTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Bikes will be loaded here dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">✅ Added to cart successfully!</div>
+
+  <script>
+    let cartCount = 0;
+
+    // Function to show success modal
+    function showModal() {
+      const modal = document.getElementById("successModal");
+      modal.style.display = "block";
+      setTimeout(() => { modal.style.display = "none"; }, 2000);
+    }
+
+    // Add to cart logic
+    function addToCart(bike) {
+      cartCount++;
+      document.getElementById("cartCount").textContent = cartCount;
+      showModal();
+      console.log("Added to cart:", bike);
+    }
+
+    // Fetch bikes and display them
+    async function loadBikes() {
+      const tableBody = document.querySelector("#bikeTable tbody");
+      try {
+        const response = await fetch("http://localhost:8080/bike/getbike");
+        if (!response.ok) throw new Error("Failed to fetch bikes");
+
+        const bikes = await response.json();
+        tableBody.innerHTML = "";
+
+        if (bikes.length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#ccc;">No bikes found.</td></tr>`;
+          return;
+        }
+
+        bikes.forEach(bike => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${bike.id ?? ""}</td>
+            <td>${bike.model ?? ""}</td>
+            <td>${bike.brand ?? ""}</td>
+            <td>${bike.type ?? ""}</td>
+            <td>₹${bike.price ?? ""}</td>
+            <td>${bike.image ? `<img src="data:image/jpeg;base64,${bike.image}" alt="${bike.model}"/>` : "No Image"}</td>
+            <td><button class="add-btn" onclick='addToCart(${JSON.stringify(bike)})'>Add to Cart</button></td>
+          `;
+          tableBody.appendChild(row);
+        });
+      } catch (error) {
+        console.error(error);
+        tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:red;">Error loading bikes</td></tr>`;
+      }
+    }
+
+    // Load bikes on page open
+    window.onload = loadBikes;
+  </script>
+</body>
+</html>

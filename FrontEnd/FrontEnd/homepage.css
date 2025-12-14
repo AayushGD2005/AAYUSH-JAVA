@@ -1,0 +1,71 @@
+/* LOGIN PAGE CSS */
+body.home-body {
+    font-family: 'Rajdhani', sans-serif;
+    background: linear-gradient(135deg, #924c20, #4e2c17);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: rgba(132, 65, 21, 0.1);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255,102,0,0.5);
+}
+
+.login-container input {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.login-container input::placeholder {
+    color: #ddd;
+}
+
+.login-container button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #ff6600, #ff3300);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background: linear-gradient(90deg, #ff3300, #ff6600);
+    transform: scale(1.05);
+}
+
+/* Dashboard styling */
+.dashboard {
+    text-align: center;
+}
+
+.dashboard button {
+    margin: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #ff6600, #ff3300);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.dashboard button:hover {
+    background: linear-gradient(90deg, #ff3300, #ff6600);
+    transform: scale(1.05);
+}
