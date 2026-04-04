@@ -1,0 +1,100 @@
+problems to practice
+
+
+\
+1) Given an array of integers and a target, return indices of two numbers such that they add up to the target.          DONE
+
+
+
+
+ package Collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Map2 {
+public static void main(String[] args) {
+	
+
+	//nums = [2, 7, 11, 15]
+		//	target = 9
+	  	 int[] a1= {1,999999,6,15,2};
+	  	 int target=8;
+	  	
+	  	 for(int i=0;i<a1.length;i++) {
+	  	
+	  		 for(int j=1;j<a1.length;j++) {
+	  			 if(a1[i]+a1[j]==target) {
+	  				System.out.println("yes there is a pair"+a1[i]+"and"+a1[j]);
+	  			 }
+
+	  	 }
+}
+}}
+
+2)Given an array, check if any value appears at least twice.               DONE
+
+
+
+package Collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Map2 {
+public static void main(String[] args) {
+	
+
+	//nums = [2, 7, 11, 15]
+		//	target = 9
+	  	 int[] a1= {1,2,3,4,45,3};
+	
+	  	int count=1;
+	  	
+	  	 for(int i=0;i<a1.length;i++) {
+	  	
+	  		 for(int j=i+1;j<a1.length;j++) {
+	  			 if(a1[i]==a1[j]) {
+	  				count=count+1;
+	  			 }
+
+	  	 }
+}if(count>1) {
+	System.out.println("yes it is repeating");
+}else {
+	System.out.println("no repeat");
+}
+3)Given two arrays, return their intersection (common elements).            DONE
+
+
+
+package Collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Map2 {
+public static void main(String[] args) {
+	
+
+	//nums = [2, 7, 11, 15]
+		//	target = 9
+	  	 int[] a1= {1,2,3,4,45,3};
+	
+	  	int count=1;
+	  	
+	  	 for(int i=0;i<a1.length;i++) {
+	  	
+	  		 for(int j=i+1;j<a1.length;j++) {
+	  			 if(a1[i]==a1[j]) {
+	  				count=count+1;
+	  			 }
+
+	  	 }
+}if(count>1) {
+	System.out.println("yes it is repeating");
+}else {
+	System.out.println("no repeat");
+}
+
+
