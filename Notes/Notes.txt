@@ -1,0 +1,228 @@
+What is Java?
+
+Object Oriented Programming Language
+
+Platform Independent (Write Once Run Anywhere)
+
+Compiled + Interpreted
+
+🔹 Java Features
+
+Simple
+
+Object-Oriented
+
+Platform Independent
+
+Secure
+
+Robust
+
+Multithreaded
+
+Portable
+
+2️⃣ JVM, JRE, JDK
+🔹 JVM (Java Virtual Machine)
+
+Executes bytecode
+
+Makes Java platform independent
+
+🔹 JRE (Java Runtime Environment)
+
+JVM + Libraries
+
+🔹 JDK (Java Development Kit)
+
+JRE + Compiler (javac) + Tools
+
+3️⃣ Basic Structure of Java Program
+class Demo {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+}
+
+Important:
+
+class → Blueprint
+
+main() → Entry point
+
+public static void main(String[] args)
+
+public → Accessible
+
+static → No object needed
+
+void → No return
+
+String[] → Command line arguments
+
+4️⃣ Data Types
+🔹 Primitive
+
+int
+
+float
+
+double
+
+char
+
+boolean
+
+byte
+
+short
+
+long
+
+🔹 Non-Primitive
+
+String
+
+Arrays
+
+Classes
+
+Objects
+
+5️⃣ Variables & Operators
+Types of Variables
+
+Local
+
+Instance
+
+Static
+
+Operators
+
+Arithmetic (+ - * / %)
+
+Relational (== != > <)
+
+Logical (&& || !)
+
+Assignment (= +=)
+
+Unary (++ --)
+
+6️⃣ Control Statements
+🔹 Decision Making
+
+if
+
+if-else
+
+switch
+
+🔹 Looping
+
+for
+
+while
+
+do-while
+
+7️⃣ OOP Concepts (Very Important 🔥)
+1. Encapsulation
+
+Wrapping data + methods together
+
+Use private variables + getters/setters
+
+2. Abstraction
+
+Hiding implementation
+
+Achieved using abstract class & interface
+
+3. Inheritance
+
+One class acquires properties of another
+
+extends keyword
+
+4. Polymorphism
+
+Many forms
+
+Compile time → Method Overloading
+
+Run time → Method Overriding
+
+8️⃣ Constructor
+
+Special method
+
+Same name as class
+
+Used to initialize object
+
+No return type
+
+Types:
+
+Default
+
+Parameterized
+
+9️⃣ this & super
+🔹 this
+
+Refers to current object
+
+🔹 super
+
+Refers to parent class object
+
+🔟 Method Overloading vs Overriding
+Overloading	Overriding
+Same method name	Same method name
+Different parameters	Same parameters
+Compile time	Run time
+Same class
+
+11 COLLECTIONS 
+what is collection?
+collection is a ready made classes and interface which provide places to store similiar data for easier accsess
+*All colllections implement iterables
+type of collection-
+a)list---->ArrayList,LinkedList,Vector(stack);
+b)quee---->enquee,dequee;
+c)maps----->HashMap,TreeMap;
+d)sets---->HashSet,TreeSet,LinkedHashset
+Definition
+
+TreeMap is a Red-Black Tree based implementation of the Map interface that stores key-value pairs in sorted order of keys.
+
+🔑 Key Features
+
+Stores data in sorted order (ascending by default)
+
+No null key allowed, but multiple null values allowed
+
+Not synchronized
+
+Implements: NavigableMap, SortedMap
+
+HashSet is a collection that stores unique elements and is backed by a HashMap.
+
+🔑 Key Features
+
+No duplicates allowed
+
+Allows one null element
+
+Unordered (no guarantee of order)
+
+Not synchronized
+
+⚙️ Internal Working
+
+Uses Hashing (HashMap internally)
+
+Elements stored as keys in HashMap
